@@ -8,13 +8,23 @@ Server systems are not yet setup.
 
 See below for information on the REACT framework.
 
-space
+iiks
 
-space
+iiks
 
-space
+iiks
 
-space
+iiks
+
+iiks
+
+iiks
+
+iiks
+
+iiks
+
+iiks
 
 # Getting Started with Create React App
 
