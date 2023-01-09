@@ -2,6 +2,10 @@
 
 ## **IIKS Official Website**
 
+[Website link: ](iiks.tech) [iiks.tech](iiks.tech)
+
+Website hosted on Netlify.
+
 This project uses the React JS framework in combination with NODE JS, which runs on the server.
 
 Server code available @ repository IIKSSERVER.
