@@ -2,7 +2,7 @@ import MenuBar from './components/menuBar';
 import './styles/App.css';
 import React from 'react';
 import Home from './pages/Home';
-import Ihsan from './pages/Ihsan';
+import About from './pages/About';
 import Api from './pages/Api';
 import { Route, Link, Routes } from "react-router-dom"
 
@@ -14,7 +14,7 @@ function App() {
       <MenuBar/>
       <Routes>
         <Route exact path="/" element={<Home/>}/>
-        <Route exact path="/Ihsan" element={<Ihsan/>}/>
+        <Route exact path="/About" element={<About/>}/>
         <Route exact path="/api" element={<Api/>}/>
       </Routes>
       
