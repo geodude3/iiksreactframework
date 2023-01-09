@@ -14,7 +14,7 @@ function App() {
       <MenuBar/>
       <Routes>
         <Route exact path="/" element={<Home/>}/>
-        <Route exact path="/About" element={<About/>}/>
+        <Route exact path="/about" element={<About/>}/>
         <Route exact path="/api" element={<Api/>}/>
       </Routes>
       
