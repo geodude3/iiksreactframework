@@ -1,11 +1,11 @@
 import React from "react";
 import "../styles/App.css"
 
-function About() {
+function Contact() {
     return(
         <div className="body">
-            <h1>Welcome to the About website</h1>
+            <h1>Welcome to the Contact website</h1>
         </div>
     )
 }
-export default About;
+export default Contact;

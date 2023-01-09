@@ -1,16 +1,22 @@
-.button{
-    margin: 20px;
+.menuElement{
+    margin: 10px;
+    margin-left: 30px;
+    margin-right: 30px;
 }
+
 #menuBar{
     display:flex;
     align-items: center;
-
+    padding: 5px;
     border-radius: 10px;
     flex-direction: row;
     justify-content: center;
     background-color: lightblue;
 }
 
-#logo{
-    margin-right: 300px;
+#logoMenuBar{
+    height: 60px;
+    margin: 5px;
+    border-radius: 10px;
+    border-color: black;
 }
