@@ -22,6 +22,7 @@ function Api() {
     return(
         <React.Fragment>
             <h1>Server Data</h1>
+            <div>Due to server development, server is only accessible on my localhost:3001 port</div>
             <div>
                 Message: {data}
             </div>
