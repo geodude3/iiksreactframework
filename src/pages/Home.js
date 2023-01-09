@@ -1,9 +1,11 @@
 import React from "react";
+import logo from "../images/iiks.jpg"
+import "../styles/home.css"
 
 function Home() {
     return(
-        <div>
-            <h1>Website Homepage</h1>
+        <div className="body">
+            <img id="logo"src={logo} alt="Logo"></img>
         </div>
     )
 }

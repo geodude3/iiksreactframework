@@ -9,9 +9,11 @@ class MenuBar extends Component {
         return (
             <React.Fragment>
                 <div id='menuBar'>
-                    <Link className='button' to="/"><button className='btn btn-primary'>Home</button></Link>
-                    <Link className='button' to="/about"><button className='btn btn-primary'>About</button></Link>
-                    <Link className='button' to="/api"><button className='btn btn-primary'>API</button></Link>
+                    <Link className='button' to="/"><button className='btn btn-primary btn-lg'>Home</button></Link>
+                    <Link className='button' to="/about"><button className='btn btn-primary btn-lg'>About</button></Link>
+                    <Link className='button' to="/api"><button className='btn btn-primary btn-lg'>API</button></Link>
+                    <Link className='button' to="/projects"><button className='btn btn-primary btn-lg'>Projects</button></Link>
+
                 </div>
             </React.Fragment>
         );
