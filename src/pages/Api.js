@@ -1,5 +1,7 @@
 import React from "react";
 import "../styles/api.css"
+import "../styles/App.css"
+
 
 function Api() {
     const [data, setData] = React.useState(null);
