@@ -1,12 +1,23 @@
-# ** IIKS **
+# **_IIKS_**
 
-## IIKS Official Website
+## **IIKS Official Website**
 
 This project uses the React JS framework in combination with NODE JS, which runs on the server.
 
 Server systems are not yet setup.
 
 See below for information on the REACT framework.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
 
 # Getting Started with Create React App
 
