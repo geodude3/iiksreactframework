@@ -7,16 +7,14 @@ This project uses the React JS framework in combination with NODE JS, which runs
 Server systems are not yet setup.
 
 See below for information on the REACT framework.
-. _
-. _
-. _
-. _
-. _
-. _
-. _
-. _
-. _
-. _
+
+space
+
+space
+
+space
+
+space
 
 # Getting Started with Create React App
 
