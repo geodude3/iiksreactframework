@@ -1,5 +1,6 @@
-#IIKS
-##IIKS Official Website
+# ** IIKS **
+
+## IIKS Official Website
 
 This project uses the React JS framework in combination with NODE JS, which runs on the server.
 
