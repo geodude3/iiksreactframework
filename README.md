@@ -4,6 +4,8 @@
 
 This project uses the React JS framework in combination with NODE JS, which runs on the server.
 
+Server code available @ repository IIKSSERVER.
+
 Server systems are not yet setup.
 
 See below for information on the REACT framework.
