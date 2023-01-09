@@ -10,7 +10,7 @@ class MenuBar extends Component {
             <React.Fragment>
                 <div id='menuBar'>
                     <Link className='button' to="/"><button className='btn btn-primary'>Home</button></Link>
-                    <Link className='button' to="/Ihsan"><button className='btn btn-primary'>Ihsan</button></Link>
+                    <Link className='button' to="/about"><button className='btn btn-primary'>About</button></Link>
                     <Link className='button' to="/api"><button className='btn btn-primary'>API</button></Link>
                 </div>
             </React.Fragment>
