@@ -2,7 +2,7 @@
 
 ## **IIKS Official Website**
 
-[Website link: ](iiks.tech) [iiks.tech](iiks.tech)
+[Website link](https://iiks.tech/): [iiks.tech](https://iiks.tech/)
 
 Website hosted on Netlify.
 
