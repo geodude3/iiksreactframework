@@ -8,7 +8,7 @@ function Home() {
     return(
         <div className="Body, body">
             <img id="logo"src={logo} alt="Logo"></img>
-            <h1 className="element">Join us on the Bleeding Edge of Innovation.</h1>
+            <h1 className="element">Join us on the Cutting Edge of Innovation.</h1>
         </div>
     )
 }
