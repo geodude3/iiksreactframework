@@ -8,7 +8,7 @@ function Api() {
   React.useEffect(()=>{
     let item = "hi there"
 
-    fetch("http://localhost:3001/comment",{
+    fetch("http://172.20.10.2:3001/comment",{
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -24,7 +24,7 @@ function Api() {
   
   const [data, setData] = React.useState(null);
   React.useEffect(() => {
-    fetch("http://localhost:3001/api/")
+    fetch("http://172.20.10.2:3001/api/")
       .then((res) => res.json())
       .then((data) => setData(data.message));
   }, []);
@@ -34,7 +34,7 @@ function Api() {
 
 
   React.useEffect(() => {
-    fetch("http://localhost:3001/api/connections")
+    fetch("http://172.20.10.2:3001/api/connections")
       .then((resp) => resp.json())
       .then((connect) => setConnect(connect.message));
   }, []);
