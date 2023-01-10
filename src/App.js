@@ -8,6 +8,7 @@ import Projects from './pages/Projects';
 import { Route, Link, Routes } from "react-router-dom"
 import Sports from './pages/Sports';
 import Contact from './pages/Contact';
+import ReportLights from './pages/ReportLights';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
       <body className='body, component'>
         <Routes>
           <Route exact path="/" element={<Home/>}/>
+          <Route exact path="/reportlights" element={<ReportLights/>}/>
           <Route exact path="/sports" element={<Sports/>}/>
           <Route exact path="/about" element={<About/>}/>
           <Route exact path="/api" element={<Api/>}/>

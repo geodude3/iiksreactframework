@@ -9,11 +9,11 @@ class MenuBar extends Component {
         return (
             <React.Fragment>
                 <div id='menuBar'>
-                    <Link className='menuElement' to="/"><button className='btn btn-primary btn-lg'>Home</button></Link>
+                    <Link className='menuElement' to="/api"><button className='btn btn-primary btn-lg'>API</button></Link>
                     <Link className='menuElement' to="/contact"><button className='btn btn-primary btn-lg'>Contact Us</button></Link>
                     <Link className='menuElement' to="/about"><button className='btn btn-primary btn-lg'>About</button></Link>
-                    <span className='menuElement badge bg-primary bg-lg'><img id='logoMenuBar' src={logo}></img></span>
-                    <Link className='menuElement' to="/api"><button className='btn btn-primary btn-lg'>API</button></Link>
+                    <Link className='menuElement' to="/"><button className='btn btn-primary btn-lg'><img id='logoMenuBar' src={logo}></img></button></Link>
+                    <Link className='menuElement' to="/reportlights"><button className='btn btn-primary btn-lg'>Report Lights</button></Link>
                     <Link className='menuElement' to="/projects"><button className='btn btn-primary btn-lg'>Projects</button></Link>
                     <Link className='menuElement' to="/sports"><button className='btn btn-primary btn-lg'>Sports</button></Link>
 
