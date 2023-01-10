@@ -4,7 +4,13 @@ import "../styles/App.css"
 function Contact() {
     return(
         <div className="body">
-            <h1>Welcome to the Contact website</h1>
+            <div>
+                <h1>Contact Us</h1>
+            </div>
+            Email us @ ihsan.salari@gmail.com
+            <div>
+                Or input feedback here:
+            </div>
         </div>
     )
 }
