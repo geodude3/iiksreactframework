@@ -32,7 +32,7 @@ function Api() {
 
 
   React.useEffect(() => {
-    fetch("http://172.20.10.2:3001/api/connections")
+    fetch("https://iiksserver.herokuapp.com/api/connections")
       .then((resp) => resp.json())
       .then((connect) => setConnect(connect.message));
   }, []);
