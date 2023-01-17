@@ -41,7 +41,7 @@ function Api() {
     return(
         <div className="body">
             <h1>Server Data</h1>
-            <div id="message">Due to server development, server is only accessible on my localhost:3001 port.</div>
+            <div id="message">Server is now up!! Input message not yet working though.</div>
             <div>
                 Message: {data}
             </div>
