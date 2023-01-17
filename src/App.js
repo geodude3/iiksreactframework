@@ -20,14 +20,13 @@ function App() {
       <body className='body, component'>
         <Routes>
             <Route exact path="/" element={<Home/>}/>
-            <Route exact path="*" element={<Home/>}/>
             <Route exact path="/reportlights" element={<ReportLights/>}/>
             <Route exact path="/sports" element={<Sports/>}/>
             <Route exact path="/about" element={<About/>}/>
             <Route exact path="/api" element={<Api/>}/>
             <Route exact path="/projects" element={<Projects/>}/>
             <Route exact path="/contact" element={<Contact/>}/>
-            <Route element={<NotFound/>}/>
+            <Route path="*" element={<NotFound/>}/>
         </Routes>
       </body>
       
