@@ -1,14 +1,15 @@
 import React from "react";
 import "../styles/api.css"
 import "../styles/App.css"
-
+import ApiComponent from "../components/api";
+import Form from "./Form";
 
 function Api() {
 
   React.useEffect(()=>{
     let item = "hi there"
 
-    fetch("http://172.20.10.2:3001/comment",{
+    fetch("https://iiksserver.herokuapp.com/comment",{
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -19,12 +20,9 @@ function Api() {
   });
 
   
-
-
-  
   const [data, setData] = React.useState(null);
   React.useEffect(() => {
-    fetch("http://172.20.10.2:3001/api/")
+    fetch("https://iiksserver.herokuapp.com/api")
       .then((res) => res.json())
       .then((data) => setData(data.message));
   }, []);
@@ -49,6 +47,9 @@ function Api() {
             </div>
             <div>
                 Connections: {connect}
+            </div>
+            <div>
+              <ApiComponent/>
             </div>
         </div>
     )
