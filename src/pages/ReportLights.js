@@ -33,7 +33,11 @@ function ReportLights() {
     
        
     };
-   
+    const handlePress = (e) => {
+        if (e.key === "Enter") {
+          document.getElementById("submit").click();
+        }
+    };
     
 
     return(
@@ -43,11 +47,7 @@ function ReportLights() {
                 Input classroom # to report lights.
             </p>
             <form id="form" onSubmit={handleSubmit}>
-                <input onKeyPress={(e) => {
-                    if (e.key === 'Done') {
-                        document.getElementById("myForm").submit();
-                    }
-                    }} 
+                <input onKeyPress={handlePress}
                     value={room.room} onChange={handleChange} pattern="[0-9]*" type="number" placeholder="Room #" id="room"/>
                 <input id="submit" type="submit"></input>
             </form>
