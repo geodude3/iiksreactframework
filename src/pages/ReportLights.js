@@ -24,7 +24,7 @@ function ReportLights() {
         .then((res) => {
             console.log(res.data)
         })
-        setRoom("")
+        setRoom("");
        
     };
     
@@ -33,7 +33,7 @@ function ReportLights() {
         <div className="body">
             <h1>Welcome to the ReportLights website</h1>
             <form onSubmit={handleSubmit}>
-                <input onChange={handleChange} type="text" placeholder="Room #" id="room"></input>
+                <input onChange={handleChange} type="number" placeholder="Room #" id="room"></input>
                 <input type="submit"></input>
             </form>
         </div>
