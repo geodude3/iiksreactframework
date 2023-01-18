@@ -44,7 +44,7 @@ function ReportLights() {
             <form onSubmit={handleSubmit}>
                 <input onKeyPress={(e) => {
                     if (e.key === 'Enter') {
-                        handleSubmit
+                        ()=>handleSubmit;
                     }
                     }} 
                     value={room.room} onChange={handleChange} pattern="[0-9]*" type="number" placeholder="Room #" id="room"/>
