@@ -56,16 +56,19 @@ function Api() {
     return(
         <div className="body">
             <h1>Server Data</h1>
-            <div id="message">Server is now up!! Input message not yet working though.</div>
+            <div className="message">Server is now up!!</div>
+            <div className="message">
+              Leave your mark! 
+              Input a message, click submit and refresh the page! See what changed? </div>
             <div>
                 Message: {data}
             </div>
             <div>
                 Connections: {connect}
             </div>
-            <div>
+            {/* <div>
                 Data: {data2}
-            </div>
+            </div> */}
             <div>
             <form onSubmit={handleSubmit}>
                 <input onChange={handle} id="item" placeholder="message" type="text" value={dataInput.item}/>

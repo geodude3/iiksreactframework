@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/App.css"
 import Axios from "axios";
 
+
 function ReportLights() {
 
     const url = "https://iiksserver.herokuapp.com/lights";
@@ -32,6 +33,9 @@ function ReportLights() {
     return(
         <div className="body">
             <h1>Welcome to the ReportLights website</h1>
+            <p>
+                Input classroom # to report lights.
+            </p>
             <form onSubmit={handleSubmit}>
                 <input onChange={handleChange} pattern="[0-9]*" type="number" placeholder="Room #" id="room"></input>
                 <input type="submit"></input>
