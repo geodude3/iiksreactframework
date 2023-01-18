@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/App.css"
 import Axios from "axios";
+import "../styles/reportLights.css"
 
 
 function ReportLights() {
@@ -38,7 +39,7 @@ function ReportLights() {
             </p>
             <form onSubmit={handleSubmit}>
                 <input onChange={handleChange} pattern="[0-9]*" type="number" placeholder="Room #" id="room"></input>
-                <input type="submit"></input>
+                <input id="submit" type="submit"></input>
             </form>
         </div>
     )
