@@ -42,7 +42,7 @@ function ReportLights() {
                 Input classroom # to report lights.
             </p>
             <form onSubmit={handleSubmit}>
-                <input value={room.room} onChange={handleChange} pattern="[0-9]*" type="number" placeholder="Room #" id="room"></input>
+                <input returnKeyType="done" value={room.room} onChange={handleChange} pattern="[0-9]*" type="number" placeholder="Room #" id="room"></input>
                 <input id="submit" type="submit"></input>
             </form>
         </div>
