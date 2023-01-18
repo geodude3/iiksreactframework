@@ -34,7 +34,7 @@ function ReportLights() {
        
     };
     const handlePress = (e) => {
-        if (e.key === "Done") {
+        if (e.key === "Enter") {
           document.getElementById("submit").click();
         }
     };
