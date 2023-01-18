@@ -34,7 +34,6 @@ function ReportLights() {
        
     };
     const handlePress = (e) => {
-        e.preventDefault();
         document.getElementById("submit").click();
         
     };
