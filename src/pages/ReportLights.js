@@ -24,6 +24,9 @@ function ReportLights() {
         .then((res) => {
             console.log(res.data)
         })
+        const newdata = "";
+        newdata[e.target.id] = e.target.value;
+        setRoom(newdata)
        
     };
     
