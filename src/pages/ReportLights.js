@@ -8,16 +8,17 @@ function ReportLights() {
 
     const url = "https://iiksserver.herokuapp.com/lights";
 
-    const [room, setRoom] = React.useState(null,{
+    const [room, setRoom] = React.useState({
         room:""
     });
 
     const handleChange = (e) => {
-        const newdata = {...room};
-        newdata[e.target.id] = e.target.value;
+        const newdata = { room: e.target.value };
         setRoom(newdata)
     };
+
     const handleSubmit = (e) => {
+        
         e.preventDefault();
 
         Axios.post(url,{
@@ -26,7 +27,10 @@ function ReportLights() {
         .then((res) => {
             console.log(res.data)
         })
-        setRoom("");
+
+        setRoom(prevRoom => ({ room: "" }));
+
+    
        
     };
     
@@ -38,7 +42,7 @@ function ReportLights() {
                 Input classroom # to report lights.
             </p>
             <form onSubmit={handleSubmit}>
-                <input onChange={handleChange} pattern="[0-9]*" type="number" placeholder="Room #" id="room"></input>
+                <input value={room.room} onChange={handleChange} pattern="[0-9]*" type="number" placeholder="Room #" id="room"></input>
                 <input id="submit" type="submit"></input>
             </form>
         </div>
