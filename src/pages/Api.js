@@ -1,24 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/api.css"
 import "../styles/App.css"
-import ApiComponent from "../components/api";
-import Form from "./Form";
+import Axios from "axios"
 
 function Api() {
 
-  React.useEffect(()=>{
-    let item = "hi there"
+  const [data2, setData2] = React.useState(null);
 
-    fetch("https://iiksserver.herokuapp.com/comment",{
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({item})
+  const [dataInput, setDataInput] = React.useState({
+    item:""
+  })
+
+  const handle = (e)=>{
+    const newdata = {...dataInput};
+    newdata[e.target.id] = e.target.value;
+    setDataInput(newdata)
+    console.log(newdata);
+  }
+
+  const url = "https://iiksserver.herokuapp.com/comment"
+  const handleSubmit = (e)=>{
+    e.preventDefault();
+    console.log(dataInput.item)
+    const response = Axios.post(url,{
+      item:dataInput.item
     })
-      .then(data => data.json())
-  });
-
+    .then((res) => {
+      res.json();
+    })
+    .then((data) => setData(data.message))
+    // setData(response.data);
+    // console.log("Message:", response.data)
+    
+  }
   
   const [data, setData] = React.useState(null);
   React.useEffect(() => {
@@ -38,6 +52,7 @@ function Api() {
   }, []);
 
 
+
     return(
         <div className="body">
             <h1>Server Data</h1>
@@ -49,7 +64,13 @@ function Api() {
                 Connections: {connect}
             </div>
             <div>
-              <ApiComponent/>
+                Data: {data2}
+            </div>
+            <div>
+            <form onSubmit={handleSubmit}>
+                <input onChange={handle} id="item" placeholder="message" type="text" value={dataInput.item}/>
+                <input type="submit" value="Submit" />
+            </form>
             </div>
         </div>
     )
