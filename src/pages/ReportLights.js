@@ -44,7 +44,7 @@ function ReportLights() {
             </p>
             <form id="form" onSubmit={handleSubmit}>
                 <input onKeyPress={(e) => {
-                    if (e.key === 'done') {
+                    if (e.key === 'Done') {
                         document.getElementById("myForm").submit();
                     }
                     }} 
