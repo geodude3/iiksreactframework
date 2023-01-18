@@ -35,7 +35,8 @@ function ReportLights() {
     };
     const handlePress = (e) => {
         if (e.key === "Enter") {
-          document.getElementById("submit").click();
+            e.preventDefault();
+            document.getElementById("submit").click();
         }
     };
     
