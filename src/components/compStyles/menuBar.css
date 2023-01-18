@@ -1,21 +1,49 @@
-.menuElement{
-    margin: 10px;
-    margin-left: 30px;
-    margin-right: 30px;
-}
+@media only screen and (min-width: 601px)
+    {
+    .menuElement{
+        margin: 10px;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
 
-#menuBar{
-    display:flex;
-    align-items: center;
-    padding: 5px;
-    border-radius: 10px;
-    flex-direction: row;
-    justify-content: center;
-    background-color: lightblue;
-}
+    #menuBar{
+        display:flex;
+        align-items: center;
+        padding: 5px;
+        border-radius: 10px;
+        flex-direction: row;
+        justify-content: center;
+        background-color: lightblue;
+    }
 
-#logoMenuBar{
-    height: 60px;
-    border-radius: 10px;
-    border-color: black;
+    #logoMenuBar{
+        height: 60px;
+        border-radius: 10px;
+        border-color: black;
+    }
+}
+@media only screen and (max-width: 601px)
+    {
+    .menuElement{
+        margin: 50px;
+        margin-left: 10px;
+        margin-right: 10px;
+        
+    }
+
+    #menuBar{
+        display:flex;
+        align-items: center;
+        padding: 2px;
+        border-radius: 5px;
+        flex-direction: row;
+        justify-content: center;
+        background-color: lightblue;
+    }
+
+    #logoMenuBar{
+        height: 40px;
+        border-radius: 10px;
+        border-color: black;
+    }
 }
