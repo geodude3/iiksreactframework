@@ -33,7 +33,7 @@ function ReportLights() {
         <div className="body">
             <h1>Welcome to the ReportLights website</h1>
             <form onSubmit={handleSubmit}>
-                <input onChange={handleChange} type="pattern" placeholder="Room #" id="room"></input>
+                <input onChange={handleChange} pattern="[0-9]*" type="number" placeholder="Room #" id="room"></input>
                 <input type="submit"></input>
             </form>
         </div>
