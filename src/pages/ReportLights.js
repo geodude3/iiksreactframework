@@ -33,6 +33,7 @@ function ReportLights() {
     
        
     };
+   
     
 
     return(
@@ -41,10 +42,10 @@ function ReportLights() {
             <p>
                 Input classroom # to report lights.
             </p>
-            <form onSubmit={handleSubmit}>
+            <form id="form" onSubmit={handleSubmit}>
                 <input onKeyPress={(e) => {
                     if (e.key === 'Enter') {
-                        ()=>handleSubmit;
+                        document.getElementById("myForm").submit();
                     }
                     }} 
                     value={room.room} onChange={handleChange} pattern="[0-9]*" type="number" placeholder="Room #" id="room"/>
