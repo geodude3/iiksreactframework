@@ -1,18 +1,40 @@
+@media only screen and (max-width: 600px) {
+    #logo{
+        display: flex;
+        border-radius: 10px;
+        width: 200px;
+        margin-left: 100px;
+    }
+    .element{
+        margin: 10px;
+        margin-left: 50px;
+        font-family:'Times New Roman', Times, serif;
+        font-weight: bold;
+        color: darkslategray;
+    }
+    .Body{
+        display: inline;
+        
+    } 
+}
+@media only screen and (min-width:601px){
 
-#logo{
-    display: flex;
-    border-radius: 20px;
-    width: 500px;
-    margin-left: 400px;
-}
-.element{
-    margin: 20px;
-    margin-left: 300px;
-    font-family:'Times New Roman', Times, serif;
-    font-weight: bold;
-    color: darkslategray;
-}
-.Body{
-    display: inline;
-    
+
+    #logo{
+        display: flex;
+        border-radius: 20px;
+        width: 500px;
+        margin-left: 400px;
+    }
+    .element{
+        margin: 20px;
+        margin-left: 300px;
+        font-family:'Times New Roman', Times, serif;
+        font-weight: bold;
+        color: darkslategray;
+    }
+    .Body{
+        display: inline;
+        
+    }
 }
