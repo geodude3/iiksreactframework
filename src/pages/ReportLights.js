@@ -29,15 +29,24 @@ function ReportLights() {
         
         .then((message)=>{
 
-            if(message.data.emails){
-                console.log(message.data.message," ",message.data.emails[0]," ",message.data.emails[1])
-                setMessage(`${message.data.message} ${message.data.emails[0]} ${message.data.emails[1]}`);
+            console.log(message.data)
+            console.log(message.data.double)
+            if(message.data.double){
+                if(message.data.double == '0'){
+                    console.log("not double")
+                    console.log(message.data.message," ",message.data.email);
+                    setMessage(`${message.data.message} ${message.data.email}`);
+                }else{
+                    console.log("double")
+                    console.log(message.data.message," ",message.data.emails[0]," ",message.data.emails[1])
+                    setMessage(`${message.data.message} ${message.data.emails[0]} ${message.data.emails[1]}`);
+                }
             }else{
                 console.log(message.data.message)
                 setMessage(`${message.data.message}`); 
             }
         
-                setTimeout(()=>setMessage(""),7000)
+            setTimeout(()=>setMessage(""),7000)
         })
 
         setRoom(prevRoom => ({ room: "" }));
