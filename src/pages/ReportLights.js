@@ -16,6 +16,8 @@ function ReportLights() {
         const newdata = { room: e.target.value };
         setRoom(newdata)
     };
+    
+    let [message, setMessage] = React.useState();
 
     const handleSubmit = (e) => {
         
@@ -24,8 +26,18 @@ function ReportLights() {
         Axios.post(url,{
             item:room.room
         })
-        .then((res) => {
-            console.log(res.data)
+        
+        .then((message)=>{
+
+            if(message.data.emails){
+                console.log(message.data.message," ",message.data.emails[0]," ",message.data.emails[1])
+                setMessage(`${message.data.message} ${message.data.emails[0]} ${message.data.emails[1]}`);
+            }else{
+                console.log(message.data.message)
+                setMessage(`${message.data.message}`); 
+            }
+        
+                setTimeout(()=>setMessage(""),7000)
         })
 
         setRoom(prevRoom => ({ room: "" }));
@@ -50,6 +62,7 @@ function ReportLights() {
                     value={room.room} onChange={handleChange} pattern="[0-9]*" type="number" placeholder="Room #" id="room"/>
                 <input id="submit" type="submit"></input>
             </form>
+            <p style={{margin:20,marginLeft:1}}>{message}</p>
         </div>
     )
 }
