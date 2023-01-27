@@ -8,6 +8,7 @@ import Axios from "axios"
 function Api() {
 
   const [data2, setData2] = React.useState(null);
+  const [messages, setMessages] = React.useState(null);
 
   const [dataInput, setDataInput] = React.useState({
     item:""
@@ -17,25 +18,28 @@ function Api() {
     const newdata = {...dataInput};
     newdata[e.target.id] = e.target.value;
     setDataInput(newdata)
-    console.log(newdata);
+    //console.log(newdata);
   }
 
   const url = "https://iiksserver.herokuapp.com/comment"
   const handleSubmit = (e)=>{
     e.preventDefault();
     console.log(dataInput.item)
-    const response = Axios.post(url,{
+    Axios.post(url,{
       item:dataInput.item
     })
-    .then((res) => {
-      res.json();
+    .then((message) => {
+      console.log(message);
+      console.log(message.data.messages);
+      
+      
+      setMessages(message.data.messages);
+      console.log(messages)
+
     })
-    .then((data) => setData(data.message))
-    // setData(response.data);
-    // console.log("Message:", response.data)
-    
   }
   
+
   const [data, setData] = React.useState(null);
   React.useEffect(() => {
     fetch("https://iiksserver.herokuapp.com/api")
@@ -53,6 +57,8 @@ function Api() {
       .then((connect) => setConnect(connect.message));
   }, []);
 
+  const fake = ['1','2','3','4','5'];
+
 
 
     return(
@@ -61,17 +67,31 @@ function Api() {
             <div className="message">Server is now up!!</div>
             <div className="message">
               Leave your mark! 
-              Input a message, click submit and refresh the page! See what changed? </div>
-            <div>
+              Contribute to the website chat! </div>
+            {/* <div>
                 Message: {data}
-            </div>
+            </div> */}
             <div>
                 Connections: {connect}
             </div>
             {/* <div>
                 Data: {data2}
             </div> */}
+
             <div>
+            <div>
+              <ul>
+                
+                {
+                  messages ? messages.map(listItem=>{
+                    return <li>{listItem}</li>
+                  }) : <p>
+                    No messages
+                  </p>
+                }
+              </ul>
+              
+            </div>
             <form onSubmit={handleSubmit}>
                 <input onChange={handle} id="item" placeholder="message" type="text" value={dataInput.item}/>
                 <input type="submit" value="Submit" />
@@ -81,3 +101,4 @@ function Api() {
     )
 }
 export default Api;
+
