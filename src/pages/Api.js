@@ -44,7 +44,6 @@ function Api() {
   React.useEffect(() => {
     fetch("https://iiksserver.herokuapp.com/api")
       .then((res) => res.json())
-      .then((data) => setData(data.message))
       .then((data) => setMessages(data.messages));
     
     }, []);
