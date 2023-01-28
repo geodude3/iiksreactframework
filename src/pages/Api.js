@@ -44,10 +44,8 @@ function Api() {
   const [data, setData] = React.useState(null);
 
 
-setInterval(() => {
-    Axios.get("https://iiksserver.herokuapp.com/getmessages")
-      .then((message) => setMessages(message.data.messages));
-}, 10000);
+  Axios.get("https://iiksserver.herokuapp.com/getmessages")
+    .then((message) => setMessages(message.data.messages));
 
   const [connect, setConnect] = React.useState(null);
 
