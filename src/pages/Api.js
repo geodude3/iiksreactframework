@@ -49,17 +49,17 @@ function Api() {
 
   const [connect, setConnect] = React.useState(null);
 
-  React.useEffect(() => {
-    fetch("https://iiksserver.herokuapp.com/getmessages")
-      .then((message) => setMessages(message.data.messages));
+  // React.useEffect(() => {
+  //   fetch("https://iiksserver.herokuapp.com/getmessages")
+  //     .then((message) => setMessages(message.data.messages));
 
-  }, []);
+  // }, []);
 
-  React.useEffect(() => {
-    fetch("https://iiksserver.herokuapp.com/api/connections")
-      .then((resp) => resp.json())
-      .then((connect) => setConnect(connect.message));
-  }, []);
+  // React.useEffect(() => {
+  //   fetch("https://iiksserver.herokuapp.com/api/connections")
+  //     .then((resp) => resp.json())
+  //     .then((connect) => setConnect(connect.message));
+  // }, []);
 
 
     return(
