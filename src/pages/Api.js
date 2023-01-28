@@ -37,17 +37,21 @@ function Api() {
       console.log(messages)
 
     })
+    setDataInput({item:""})
   }
   
 
   const [data, setData] = React.useState(null);
-  React.useEffect(() => {
-    fetch("https://iiksserver.herokuapp.com/api")
-      .then((res) => res.json())
-      .then((data) => setMessages(data.messages));
-    
-    }, []);
 
+  setInterval(() => {
+    React.useEffect(() => {
+      fetch("https://iiksserver.herokuapp.com/api")
+        .then((res) => res.json())
+        .then((data) => setMessages(data.messages));
+      
+      }, []);
+  
+  }, 500);
 
   const [connect, setConnect] = React.useState(null);
 
@@ -57,9 +61,6 @@ function Api() {
       .then((resp) => resp.json())
       .then((connect) => setConnect(connect.message));
   }, []);
-
-  const fake = ['1','2','3','4','5'];
-
 
 
     return(
