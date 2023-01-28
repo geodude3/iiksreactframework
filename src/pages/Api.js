@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../styles/api.css"
 import "../styles/App.css"
 import Axios from "axios"
- 
+
 
 
 function Api() {
@@ -43,15 +43,11 @@ function Api() {
 
   const [data, setData] = React.useState(null);
 
+
   setInterval(() => {
-    React.useEffect(() => {
-      fetch("https://iiksserver.herokuapp.com/api")
-        .then((res) => res.json())
-        .then((data) => setMessages(data.messages));
-      
-      }, []);
-  
-  }, 500);
+    Axios.get("https://iiksserver.herokuapp.com/getmessages")
+      .then((message) => setMessages(message.data.messages));
+  }, 250);
 
   const [connect, setConnect] = React.useState(null);
 

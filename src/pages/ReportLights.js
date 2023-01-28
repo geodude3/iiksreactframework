@@ -11,12 +11,17 @@ function ReportLights() {
     const [room, setRoom] = React.useState({
         room:"",
         mode:"Report",
-        value: "Congratulate"
+        value: "Congratulate",
+        pass: ""
     });
 
 
-    const handleChange = (e) => {
-        const newdata = { room: e.target.value, mode:room.mode, value:room.value };
+    const handleRoomChange = (e) => {
+        const newdata = { room: e.target.value, mode:room.mode, value:room.value, pass:room.pass };
+        setRoom(newdata)
+    };
+    const handlePassChange = (e) => {
+        const newdata = { room: room.room, mode:room.mode, value:room.value, pass: e.target.value };
         setRoom(newdata)
     };
     
@@ -32,7 +37,8 @@ function ReportLights() {
 
         Axios.post(url,{
             item:room.room,
-            status:room.mode
+            status:room.mode,
+            pass:room.pass
         })
          
         .then((message)=>{
@@ -57,7 +63,7 @@ function ReportLights() {
             setTimeout(()=>setMessage(""),7000)
         })
 
-        setRoom(prevRoom => ({ room: "", mode:room.mode,value:room.value }));
+        setRoom(prevRoom => ({ room: "", mode:room.mode,value:room.value, pass:"" }));
 
     
        
@@ -71,9 +77,9 @@ function ReportLights() {
         let newdata;
         if(room.mode === "Report"){
             console.log(room.mode);
-            newdata = { room: room.room, mode:"Congratulate",value:"Report"  };
+            newdata = { room: room.room, mode:"Congratulate",value:"Report",pass:room.pass  };
         }else if(room.mode === "Congratulate"){
-            newdata = { room: room.room, mode:"Report",value:"Congratulate"   };
+            newdata = { room: room.room, mode:"Report",value:"Congratulate", pass:room.pass  };
         }
         setRoom(newdata)
         console.log(room.mode);
@@ -97,9 +103,12 @@ function ReportLights() {
             </b>
             <form id="form" onSubmit={handleSubmit}>
                 <input onSubmitEditing={handlePress}
-                    value={room.room} onChange={handleChange} pattern="[0-9]*" type="number" placeholder="Room #" id="room"/>
+                    value={room.room} onChange={handleRoomChange} pattern="[0-9]*" type="number" placeholder="Room #" id="room"/>
+                <input onSubmitEditing={handlePress}
+                    value={room.pass} onChange={handlePassChange} type="text" placeholder="Password" id="pass"/>
                 <input id="submit" type="submit"></input>
             </form>
+            
             <p style={{margin:20,marginLeft:1}}>{message}</p>
         </div>
     )
