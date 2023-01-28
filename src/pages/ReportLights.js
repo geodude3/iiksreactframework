@@ -9,22 +9,30 @@ function ReportLights() {
     const url = "https://iiksserver.herokuapp.com/lights";
 
     const [room, setRoom] = React.useState({
-        room:""
+        room:"",
+        mode:"Report",
+        value: "Congratulate"
     });
 
+
     const handleChange = (e) => {
-        const newdata = { room: e.target.value };
+        const newdata = { room: e.target.value, mode:room.mode, value:room.value };
         setRoom(newdata)
     };
     
     let [message, setMessage] = React.useState();
 
     const handleSubmit = (e) => {
+
+        let statusMessage;
+        if(room.mode === 'Congratulate')statusMessage = 'Congratulation'; else statusMessage = 'Report';
+        
         
         e.preventDefault();
 
         Axios.post(url,{
-            item:room.room
+            item:room.room,
+            status:room.mode
         })
         
         .then((message)=>{
@@ -32,14 +40,14 @@ function ReportLights() {
             console.log(message.data)
             console.log(message.data.double)
             if(message.data.double){
-                if(message.data.double == '0'){
+                if(message.data.double === '0'){
                     console.log("not double")
-                    console.log(message.data.message," ",message.data.email);
-                    setMessage(`${message.data.message} ${message.data.email}`);
+                    console.log(message.data.message," ",room.mode," ",message.data.email);
+                    setMessage(`${message.data.message} ${statusMessage} email sent to: ${message.data.email}`);
                 }else{
                     console.log("double")
-                    console.log(message.data.message," ",message.data.emails[0]," ",message.data.emails[1])
-                    setMessage(`${message.data.message} ${message.data.emails[0]} ${message.data.emails[1]}`);
+                    console.log(message.data.message," ",room.mode," ",message.data.emails[0]," ",message.data.emails[1])
+                    setMessage(`${message.data.message} ${statusMessage} email sent to: ${message.data.emails[0]} ${message.data.emails[1]}`);
                 }
             }else{
                 console.log(message.data.message)
@@ -49,7 +57,7 @@ function ReportLights() {
             setTimeout(()=>setMessage(""),7000)
         })
 
-        setRoom(prevRoom => ({ room: "" }));
+        setRoom(prevRoom => ({ room: "", mode:room.mode,value:room.value }));
 
     
        
@@ -58,14 +66,35 @@ function ReportLights() {
         document.getElementById("submit").click();
         
     };
+    const handleCongrats = (e) => {
+        e.preventDefault();
+        let newdata;
+        if(room.mode === "Report"){
+            console.log(room.mode);
+            newdata = { room: room.room, mode:"Congratulate",value:"Report"  };
+        }else if(room.mode === "Congratulate"){
+            newdata = { room: room.room, mode:"Report",value:"Congratulate"   };
+        }
+        setRoom(newdata)
+        console.log(room.mode);
+    }
     
 
     return(
         <div className="body">
             <h1>Welcome to the ReportLights website</h1>
             <p>
-                Input classroom # to report lights.
+                Input classroom/office # to Report lights. 
             </p>
+            <p>
+            If you have noticed a certain classroom/office has been turning off the lights more often, press <b>"Congratulate"</b> to send a congratulation email.
+            </p>
+            <b>
+                <p>
+                    Email type: <o>{room.mode}</o>           
+                    <form name="mode" onSubmit={handleCongrats}><input name="modeButton" value={room.value} type="submit"></input></form> 
+                </p>
+            </b>
             <form id="form" onSubmit={handleSubmit}>
                 <input onSubmitEditing={handlePress}
                     value={room.room} onChange={handleChange} pattern="[0-9]*" type="number" placeholder="Room #" id="room"/>
