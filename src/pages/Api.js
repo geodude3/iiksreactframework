@@ -64,34 +64,29 @@ function Api() {
 
     return(
         <div className="body">
-            <h1>Server Data</h1>
-            <div className="message">Server is now up!!</div>
-            <div className="message">
-              Leave your mark! 
-              Contribute to the website chat! </div>
-            {/* <div>
-                Message: {data}
-            </div> */}
+            <h1>Server Interface and Chat</h1>
             <div>
                 Connections: {connect}
             </div>
-            {/* <div>
-                Data: {data2}
-            </div> */}
 
-            <div>
-            <div>
-              <ul>
+            <div id="chat">
+              <h2>Website Chat</h2>
+              <div className="message">
+                Leave your mark! 
+                Contribute to the website chat! </div>
+
+              <div>
+              <div id="chatbox">
                 
-                {
-                  messages ? messages.map(listItem=>{
-                    return <li>{listItem}</li>
-                  }) : <p>
-                    No messages
-                  </p>
-                }
-              </ul>
-              
+                  {
+                    messages ? messages.map(listItem=>{
+                      return <div className="textDiv"><span className="text">{listItem}</span></div>
+                    }) : <p>
+                      No messages
+                    </p>
+                  }
+                
+              </div>
             </div>
             <form onSubmit={handleSubmit}>
                 <input onChange={handle} id="item" placeholder="message" type="text" value={dataInput.item}/>
