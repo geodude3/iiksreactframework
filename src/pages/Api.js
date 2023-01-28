@@ -34,7 +34,7 @@ function Api() {
       
       
       setMessages(message.data.messages);
-      console.log(messages)
+      console.log(messages) 
  
     })
     setDataInput({item:""})
