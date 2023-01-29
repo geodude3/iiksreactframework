@@ -16,6 +16,9 @@
         display: inline;
         
     } 
+    .description{
+        margin-left: 25px;
+    }
 }
 @media only screen and (min-width:601px){
 
@@ -36,5 +39,8 @@
     .Body{
         display: inline;
         
+    }
+    .description{
+        margin-left: 200px;
     }
 }
