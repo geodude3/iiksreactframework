@@ -9,7 +9,7 @@ function Home() {
         <div className="Body, body">
             <img id="logo"src={logo} alt="Logo"></img>
             <h1 className="element">Join us on the Cutting Edge of Innovation.</h1>
-            <p className="description">This full stack website was built from the ground up using the React Javascript framework and Node Javascript running on an external server.</p>
+            <p className="description">This full stack website was built from the ground up using the React Javascript framework and Node Javascript running on an external server. Created by Ihsan.</p>
         </div>
     )
 }
