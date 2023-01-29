@@ -52,14 +52,19 @@ function Api() {
   React.useEffect(() => {
     fetch("https://iiksserver.herokuapp.com/getmessages")
       .then((res)=>res.json())
-      .then((message) => setMessages(message.messages));
+      .then((message) => {
+        console.log(message.messages);
+        setMessages(message.messages);
+      });
 
   }, []);
 
   React.useEffect(() => {
     fetch("https://iiksserver.herokuapp.com/api/connections")
       .then((resp) => resp.json())
-      .then((connect) => setConnect(connect.message));
+      .then((data) =>{
+        setConnect(data.message)
+      })
   }, []);
 
 
