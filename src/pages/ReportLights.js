@@ -12,16 +12,22 @@ function ReportLights() {
         room:"",
         mode:"Report",
         value: "Congratulate",
-        pass: ""
+        pass: "",
+        user: ""
     });
 
 
+
     const handleRoomChange = (e) => {
-        const newdata = { room: e.target.value, mode:room.mode, value:room.value, pass:room.pass };
+        const newdata = { room: e.target.value, mode:room.mode, value:room.value, pass:room.pass, user:room.user };
+        setRoom(newdata)
+    };
+    const handleUserChange = (e) => {
+        const newdata = { room: room.room, mode:room.mode, value:room.value, pass:room.pass, user: e.target.value };
         setRoom(newdata)
     };
     const handlePassChange = (e) => {
-        const newdata = { room: room.room, mode:room.mode, value:room.value, pass: e.target.value };
+        const newdata = { room: room.room, mode:room.mode, value:room.value, pass: e.target.value, user:room.user };
         setRoom(newdata)
     };
     
@@ -35,12 +41,16 @@ function ReportLights() {
         
         e.preventDefault();
 
+        console.log(room.user);
         Axios.post(url,{
             item:room.room,
             status:room.mode,
-            pass:room.pass
+            pass:room.pass,
+            user:room.user
         })
          
+        
+
         .then((message)=>{
 
             console.log(message.data)
@@ -63,7 +73,7 @@ function ReportLights() {
             setTimeout(()=>setMessage(""),5000)
         })
 
-        setRoom(prevRoom => ({ room: "", mode:room.mode,value:room.value, pass:"" }));
+        setRoom(prevRoom => ({ room: "", mode:room.mode,value:room.value, pass:"", user:"" }));
 
     
        
@@ -77,9 +87,9 @@ function ReportLights() {
         let newdata;
         if(room.mode === "Report"){
             console.log(room.mode);
-            newdata = { room: room.room, mode:"Congratulate",value:"Report",pass:room.pass  };
+            newdata = { room: room.room, mode:"Congratulate",value:"Report",pass:room.pass, user:room.user  };
         }else if(room.mode === "Congratulate"){
-            newdata = { room: room.room, mode:"Report",value:"Congratulate", pass:room.pass  };
+            newdata = { room: room.room, mode:"Report",value:"Congratulate", pass:room.pass, user:room.user  };
         }
         setRoom(newdata)
         console.log(room.mode);
@@ -105,7 +115,7 @@ function ReportLights() {
                 <input onSubmitEditing={handlePress}
                     value={room.room} onChange={handleRoomChange} pattern="[0-9]*" type="number" placeholder="Room #" id="room"/>
                 <input onSubmitEditing={handlePress}
-                     type="username" placeholder="User" id="user"/>
+                    value={room.user} onChange={handleUserChange} type="username" placeholder="User" id="user"/>
                 <input onSubmitEditing={handlePress}
                     value={room.pass} onChange={handlePassChange} type="password" placeholder="Password" id="pass"/>
                 <input id="submit" type="submit"></input>
