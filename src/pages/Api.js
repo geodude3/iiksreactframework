@@ -70,7 +70,7 @@ function Api() {
           console.log(message.messages);
           setMessages(message.messages);
         });
-  }, 7000);
+  }, 10000);
 
   }, []);
 
