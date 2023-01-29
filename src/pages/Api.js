@@ -49,7 +49,8 @@ function Api() {
     params: { id: this.state.taskID }
   }
   setInterval(() => {
-    Axios.get("https://iiksserver.herokuapp.com/getmessages",config)
+    const URL = "https://iiksserver.herokuapp.com/getmessages";
+    Axios.get(URL.CHECK_UPLOAD_TASK,config)
       .then((message) => setMessages(message.data.messages));
   
   }, 7000);
