@@ -44,9 +44,15 @@ function Api() {
   const [data, setData] = React.useState(null);
 
 
-  // Axios.get("https://iiksserver.herokuapp.com/getmessages")
-  //   .then((message) => setMessages(message.data.messages));
-
+  const config = {
+    headers: { Pragma: 'no-cache'},
+    params: { id: this.state.taskID }
+  }
+  setInterval(() => {
+    Axios.get("https://iiksserver.herokuapp.com/getmessages",config)
+      .then((message) => setMessages(message.data.messages));
+  
+  }, 7000);
   const [connect, setConnect] = React.useState(null);
 
   React.useEffect(() => {
