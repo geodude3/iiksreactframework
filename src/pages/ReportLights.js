@@ -60,7 +60,7 @@ function ReportLights() {
                 setMessage(`${message.data.message}`); 
             }
         
-            setTimeout(()=>setMessage(""),7000)
+            setTimeout(()=>setMessage(""),5000)
         })
 
         setRoom(prevRoom => ({ room: "", mode:room.mode,value:room.value, pass:"" }));
