@@ -55,7 +55,14 @@ function Api() {
   // }, 7000);
   const [connect, setConnect] = React.useState(null);
 
-  React.useEffect(() => {setInterval(() => {
+  React.useEffect(() => {
+    fetch("https://iiksserver.herokuapp.com/getmessages")
+        .then((res)=>res.json())
+        .then((message) => {
+          console.log(message.messages);
+          setMessages(message.messages);
+        });
+    setInterval(() => {
     
       fetch("https://iiksserver.herokuapp.com/getmessages")
         .then((res)=>res.json())
