@@ -44,24 +44,26 @@ function Api() {
   const [data, setData] = React.useState(null);
 
 
-  const config = {
-    headers: { Pragma: 'no-cache'},
-  }
-  setInterval(() => {
-    const URL = "https://iiksserver.herokuapp.com/getmessages";
-    Axios.get(URL.CHECK_UPLOAD_TASK,config)
-      .then((message) => setMessages(message.data.messages));
+  // const config = {
+  //   headers: { Pragma: 'no-cache'},
+  // }
+  // setInterval(() => {
+  //   const URL = "https://iiksserver.herokuapp.com/getmessages";
+  //   Axios.get(URL.CHECK_UPLOAD_TASK,config)
+  //     .then((message) => setMessages(message.data.messages));
   
-  }, 7000);
+  // }, 7000);
   const [connect, setConnect] = React.useState(null);
 
-  React.useEffect(() => {
-    fetch("https://iiksserver.herokuapp.com/getmessages")
-      .then((res)=>res.json())
-      .then((message) => {
-        console.log(message.messages);
-        setMessages(message.messages);
-      });
+  React.useEffect(() => {setInterval(() => {
+    
+      fetch("https://iiksserver.herokuapp.com/getmessages")
+        .then((res)=>res.json())
+        .then((message) => {
+          console.log(message.messages);
+          setMessages(message.messages);
+        });
+  }, 7000);
 
   }, []);
 
