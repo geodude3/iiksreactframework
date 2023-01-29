@@ -46,7 +46,6 @@ function Api() {
 
   const config = {
     headers: { Pragma: 'no-cache'},
-    params: { id: this.state.taskID }
   }
   setInterval(() => {
     const URL = "https://iiksserver.herokuapp.com/getmessages";
