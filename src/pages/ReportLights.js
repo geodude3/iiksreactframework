@@ -105,7 +105,7 @@ function ReportLights() {
                 <input onSubmitEditing={handlePress}
                     value={room.room} onChange={handleRoomChange} pattern="[0-9]*" type="number" placeholder="Room #" id="room"/>
                 <input onSubmitEditing={handlePress}
-                    value={room.pass} onChange={handlePassChange} type="text" placeholder="Password" id="pass"/>
+                    value={room.pass} onChange={handlePassChange} type="password" placeholder="Password" id="pass"/>
                 <input id="submit" type="submit"></input>
             </form>
             
