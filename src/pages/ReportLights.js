@@ -37,7 +37,7 @@ function ReportLights() {
 
         let statusMessage;
         if(room.mode === 'Congratulate')statusMessage = 'Congratulation'; else statusMessage = 'Report';
-        
+         
         
         e.preventDefault();
 
@@ -114,10 +114,12 @@ function ReportLights() {
             <form id="form" onSubmit={handleSubmit}>
                 <input onSubmitEditing={handlePress}
                     value={room.room} onChange={handleRoomChange} pattern="[0-9]*" type="number" placeholder="Room #" id="room"/>
-                <input onSubmitEditing={handlePress}
-                    value={room.user} onChange={handleUserChange} type="username" placeholder="User" id="user"/>
-                <input onSubmitEditing={handlePress}
-                    value={room.pass} onChange={handlePassChange} type="password" placeholder="Password" id="pass"/>
+                <div style={{padding:10, paddingLeft:0}}>
+                    <input onSubmitEditing={handlePress} 
+                        value={room.user} onChange={handleUserChange} type="username" placeholder="User" id="user"/>
+                    <input onSubmitEditing={handlePress}
+                        value={room.pass} onChange={handlePassChange} type="password" placeholder="Password" id="pass"/>
+                </div>
                 <input id="submit" type="submit"></input>
             </form>
             
