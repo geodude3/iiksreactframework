@@ -10,6 +10,7 @@ import Sports from './pages/Sports';
 import Contact from './pages/Contact';
 import ReportLights from './pages/ReportLights';
 import NotFound from './pages/NotFound';
+import Stats from "./pages/Stats"
 
 function App() {
 
@@ -26,7 +27,9 @@ function App() {
             <Route exact path="/api" element={<Api/>}/>
             <Route exact path="/projects" element={<Projects/>}/>
             <Route exact path="/contact" element={<Contact/>}/>
+            <Route exact path="/stats" element={<Stats/>}/>
             <Route path="*" element={<NotFound/>}/>
+            
         </Routes>
       </body>
       
