@@ -14,11 +14,11 @@ function Api() {
   })
 
   const handleMessageInputChange = (e)=>{
-    const newdata = {item:e.target.value, user: inputForm.item};
+    const newdata = {item:e.target.value, user: inputForm.user};
     setinputForm(newdata)
   }
   const handleMessageUserChange = (e)=>{
-    const newdata = {user:e.target.value, item: inputForm.item};
+    const newdata = {item:inputForm.item, user: e.target.value};
     setinputForm(newdata)
   }
 
