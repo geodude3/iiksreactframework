@@ -8,32 +8,39 @@ import Axios from "axios"
 function Api() {
 
   const [messages, setMessages] = React.useState(null);
-  const [messageField, setmessageField] = React.useState({
-    item:""
+  const [inputForm, setinputForm] = React.useState({
+    item:"",
+    user:""
   })
 
   const handleMessageInputChange = (e)=>{
-    const newdata = {...messageField};
-    newdata[e.target.id] = e.target.value;
-    setmessageField(newdata)
+    const newdata = {item:e.target.value, user: inputForm.item};
+    setinputForm(newdata)
+  }
+  const handleMessageUserChange = (e)=>{
+    const newdata = {user:e.target.value, item: inputForm.item};
+    setinputForm(newdata)
   }
 
 
   const handleMessageInputSubmit = (e)=>{
     e.preventDefault();
-    console.log(messageField.item)
-    Axios.post("https://iiksserver.herokuapp.com/comment",{
-      item:messageField.item
-    })
-    .then((message) => {
-      console.log(message);
-      console.log(message.data.messages);
-      
-      setMessages(message.data.messages);
-      console.log(messages) 
- 
-    })
-    setmessageField({item:""})
+    if (inputForm.user !== "") {
+      console.log(inputForm.item)
+      Axios.post("https://iiksserver.herokuapp.com/comment",{
+        item:inputForm.item,
+        user:inputForm.item
+      })
+      .then((message) => {
+        console.log(message);
+        console.log(message.data.messages);
+        
+        setMessages(message.data.messages);
+        console.log(messages) 
+   
+      })
+      setinputForm({item:"", user:inputForm.user})
+    }
   }
   
 
@@ -42,7 +49,7 @@ function Api() {
 
 //refresh messages
 
-  React.useEffect(() => {
+  React.useEffect(() => { 
 
     //might work
     fetch("https://iiksserver.herokuapp.com/api/connections")
@@ -109,7 +116,8 @@ function Api() {
               </div>
             </div>
             <form onSubmit={handleMessageInputSubmit}>
-                <input onChange={handleMessageInputChange} id="item" placeholder="message" type="text" value={messageField.item}/>
+                <input onChange={handleMessageInputChange} id="item" placeholder="message" type="text" value={inputForm.item}/>
+                <input onChange={handleMessageUserChange} id="user" placeholder="username" type="text" value={inputForm.user}/>
                 <input type="submit" value="Submit" />
             </form>
             </div>
