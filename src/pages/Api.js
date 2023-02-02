@@ -7,61 +7,68 @@ import Axios from "axios"
 
 function Api() {
 
-  const [data2, setData2] = React.useState(null);
   const [messages, setMessages] = React.useState(null);
-
-  const [dataInput, setDataInput] = React.useState({
+  const [messageField, setmessageField] = React.useState({
     item:""
   })
 
-  const handle = (e)=>{
-    const newdata = {...dataInput};
+  const handleMessageInputChange = (e)=>{
+    const newdata = {...messageField};
     newdata[e.target.id] = e.target.value;
-    setDataInput(newdata)
-    //console.log(newdata);
+    setmessageField(newdata)
   }
 
-  const url = "https://iiksserver.herokuapp.com/comment"
-  const handleSubmit = (e)=>{
+
+  const handleMessageInputSubmit = (e)=>{
     e.preventDefault();
-    console.log(dataInput.item)
-    Axios.post(url,{
-      item:dataInput.item
+    console.log(messageField.item)
+    Axios.post("https://iiksserver.herokuapp.com/comment",{
+      item:messageField.item
     })
     .then((message) => {
       console.log(message);
       console.log(message.data.messages);
       
-      
       setMessages(message.data.messages);
       console.log(messages) 
  
     })
-    setDataInput({item:""})
+    setmessageField({item:""})
   }
   
 
-  const [data, setData] = React.useState(null);
-
-
-  // const config = {
-  //   headers: { Pragma: 'no-cache'},
-  // }
-  // setInterval(() => {
-  //   const URL = "https://iiksserver.herokuapp.com/getmessages";
-  //   Axios.get(URL.CHECK_UPLOAD_TASK,config)
-  //     .then((message) => setMessages(message.data.messages));
-  
-  // }, 7000);
   const [connect, setConnect] = React.useState(null);
 
+//og code
+
+  // React.useEffect(() => {
+  //   fetch("https://iiksserver.herokuapp.com/api/connections")
+  //     .then((resp) => resp.json())
+  //     .then((data) =>{
+  //       setConnect(data.message)
+  //     })
+  // }, []);
+
+
+//refresh messages
+
   React.useEffect(() => {
+
+    //might work
+    fetch("https://iiksserver.herokuapp.com/api/connections")
+      .then((resp) => resp.json())
+      .then((data) =>{
+        setConnect(data.message)
+      })
+
     fetch("https://iiksserver.herokuapp.com/getmessages")
         .then((res)=>res.json())
         .then((message) => {
           console.log(message.messages);
           setMessages(message.messages);
         });
+
+    // refreh messages and connections
     setInterval(() => {
     
       fetch("https://iiksserver.herokuapp.com/getmessages")
@@ -70,18 +77,20 @@ function Api() {
           console.log(message.messages);
           setMessages(message.messages);
         });
+
+        fetch("https://iiksserver.herokuapp.com/api/connections")
+          .then((resp) => resp.json())
+          .then((data) =>{
+            setConnect(data.message)
+        });
+
   }, 10000);
 
   }, []);
 
-  React.useEffect(() => {
-    fetch("https://iiksserver.herokuapp.com/api/connections")
-      .then((resp) => resp.json())
-      .then((data) =>{
-        setConnect(data.message)
-      })
-  }, []);
 
+
+  // render
 
     return(
         <div className="body">
@@ -109,8 +118,8 @@ function Api() {
                 
               </div>
             </div>
-            <form onSubmit={handleSubmit}>
-                <input onChange={handle} id="item" placeholder="message" type="text" value={dataInput.item}/>
+            <form onSubmit={handleMessageInputSubmit}>
+                <input onChange={handleMessageInputChange} id="item" placeholder="message" type="text" value={messageField.item}/>
                 <input type="submit" value="Submit" />
             </form>
             </div>

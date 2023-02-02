@@ -6,7 +6,7 @@ import "../styles/reportLights.css"
 
 function ReportLights() {
 
-    const url = "https://iiksserver.herokuapp.com/lights";
+    const reportLightsPOSTURL = "https://iiksserver.herokuapp.com/lights";
 
     const [room, setRoom] = React.useState({
         room:"",
@@ -42,7 +42,7 @@ function ReportLights() {
         e.preventDefault();
 
         console.log(room.user);
-        Axios.post(url,{
+        Axios.post(reportLightsPOSTURL,{
             item:room.room,
             status:room.mode,
             pass:room.pass,

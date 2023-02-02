@@ -10,12 +10,12 @@ function Contact() {
         response:""
     })
 
-    const handleChange = (e) => {
+    const handleFeedbackInputChange = (e) => {
         const newdata = {message: e.target.value, response:feedback.response};
         setFeedback(newdata);
     }
 
-    const handleSubmit = (e) => {
+    const handleFeedbackInputSubmit = (e) => {
         e.preventDefault();
 
         Axios.post("https://iiksserver.herokuapp.com/feedback", {
@@ -26,6 +26,7 @@ function Contact() {
             console.log(response.data.message)
             setFeedback({message: "", response:response.data.message})
         })
+        //clear server respoonse message after 7 seconds.
         setTimeout(() => {
             setFeedback({message: "", response:""})
         }, 7000);
@@ -41,8 +42,8 @@ function Contact() {
             <div>
                 Or input feedback here:
             </div>
-            <form onSubmit={handleSubmit}>
-                <input onChange={handleChange} type="text" value={feedback.message}></input>
+            <form onSubmit={handleFeedbackInputSubmit}>
+                <input onChange={handleFeedbackInputChange} type="text" value={feedback.message}></input>
                 <input type="submit"></input>
             </form>
             {feedback.response}
