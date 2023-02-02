@@ -39,16 +39,6 @@ function Api() {
 
   const [connect, setConnect] = React.useState(null);
 
-//og code
-
-  // React.useEffect(() => {
-  //   fetch("https://iiksserver.herokuapp.com/api/connections")
-  //     .then((resp) => resp.json())
-  //     .then((data) =>{
-  //       setConnect(data.message)
-  //     })
-  // }, []);
-
 
 //refresh messages
 
