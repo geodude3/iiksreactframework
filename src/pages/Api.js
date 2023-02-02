@@ -29,7 +29,7 @@ function Api() {
       console.log(inputForm.item)
       Axios.post("https://iiksserver.herokuapp.com/comment",{
         item:inputForm.item,
-        user:inputForm.item
+        user:inputForm.user
       })
       .then((message) => {
         console.log(message);
