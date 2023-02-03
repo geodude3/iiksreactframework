@@ -73,7 +73,7 @@ function ReportLights() {
             setTimeout(()=>setMessage(""),5000)
         })
 
-        setRoom(prevRoom => ({ room: "", mode:room.mode,value:room.value, pass:"", user:"" }));
+        setRoom(prevRoom => ({ room: "", mode:room.mode,value:room.value, pass:room.pass, user:room.user}));
 
     
        
