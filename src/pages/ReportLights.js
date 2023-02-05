@@ -13,8 +13,8 @@ function ReportLights() {
         mode:"Report",
         value: "Congratulate",
         pass: "",
-        user: ""
-    });
+        user: false
+    }, localStorage.getItem('user') || '');
 
 
 
@@ -23,8 +23,11 @@ function ReportLights() {
         setRoom(newdata)
     };
     const handleUserChange = (e) => {
-        const newdata = { room: room.room, mode:room.mode, value:room.value, pass:room.pass, user: e.target.value };
-        setRoom(newdata)
+        if (room.user === false) {
+            const newdata = { room: room.room, mode:room.mode, value:room.value, pass:room.pass, user: room.user };
+            localStorage.setItem('user',e.target.value)
+            setRoom(newdata)
+        }
     };
     const handlePassChange = (e) => {
         const newdata = { room: room.room, mode:room.mode, value:room.value, pass: e.target.value, user:room.user };
@@ -46,7 +49,7 @@ function ReportLights() {
             item:room.room,
             status:room.mode,
             pass:room.pass,
-            user:room.user
+            user:localStorage.getItem('user')
         })
          
         
@@ -73,7 +76,7 @@ function ReportLights() {
             setTimeout(()=>setMessage(""),5000)
         })
 
-        setRoom(prevRoom => ({ room: "", mode:room.mode,value:room.value, pass:room.pass, user:room.user}));
+        setRoom(prevRoom => ({ room: "", mode:room.mode,value:room.value, pass:room.pass, user:true}));
 
     
        
@@ -116,7 +119,7 @@ function ReportLights() {
                     value={room.room} onChange={handleRoomChange} pattern="[0-9]*" type="number" placeholder="Room #" id="room"/>
                 <div style={{padding:10, paddingLeft:0}}>
                     <input onSubmitEditing={handlePress} 
-                        value={room.user} onChange={handleUserChange} type="username" placeholder="User" id="user"/>
+                        value={localStorage.getItem('user')} onChange={handleUserChange} type="username" placeholder="User" id="user"/>
                     <input onSubmitEditing={handlePress}
                         value={room.pass} onChange={handlePassChange} type="password" placeholder="Password" id="pass"/>
                 </div>
