@@ -123,7 +123,7 @@ function Api() {
             </div>
             <form onSubmit={handleMessageInputSubmit}>
                 <input onChange={handleMessageInputChange} id="item" placeholder="message" type="text" value={inputForm.item}/>
-                <input onChange={handleMessageUserChange} id="user" placeholder="username" type="text" value={inputForm.user}/>
+                <input onChange={handleMessageUserChange} id="user" placeholder="username" type="text" value={localStorage.getItem('user')}/>
                 <input type="submit" value="Submit" />
             </form>
             </div>
