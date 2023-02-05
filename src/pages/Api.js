@@ -22,7 +22,7 @@ function Api() {
   }
   const handleMessageUserChange = (e)=>{
     if (inputForm.state !== true) {
-      const newdata = {item:inputForm.item, user: e.target.value, state: true};
+      const newdata = {item:inputForm.item, user: e.target.value, state: inputForm.state};
       localStorage.setItem('user', e.target.value)
       setinputForm(newdata)
     }
@@ -45,7 +45,7 @@ function Api() {
         console.log(messages) 
    
       })
-      setinputForm({item:"", user:inputForm.user,state:inputForm.state})
+      setinputForm({item:"", user:inputForm.user,state:true})
     }
   }
   
