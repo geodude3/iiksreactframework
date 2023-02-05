@@ -12,7 +12,7 @@ function Api() {
     item:"",
     user:"",
     state:false
-  }, localStorage.getItem('user'), localStorage.getItem('state')||false)
+  }, localStorage.getItem('user'))
  
 
 
@@ -21,7 +21,7 @@ function Api() {
     setinputForm(newdata)
   }
   const handleMessageUserChange = (e)=>{
-    if (localStorage.getItem('state') !== true) {
+    if (inputForm.state !== true) {
       const newdata = {item:inputForm.item, user: e.target.value, state: inputForm.state};
       localStorage.setItem('user', e.target.value)
       setinputForm(newdata)
@@ -45,8 +45,7 @@ function Api() {
         console.log(messages) 
    
       })
-      localStorage.setItem('state', true);
-      setinputForm({item:"", user:inputForm.user,state:true});
+      setinputForm({item:"", user:inputForm.user,state:true})
     }
   }
   
