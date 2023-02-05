@@ -14,7 +14,7 @@ function ReportLights() {
         value: "Congratulate",
         pass: "",
         user: false
-    }, localStorage.getItem('user') || '');
+    }, localStorage.getItem('user') || '', localStorage.getItem('state')||false);
 
 
 
@@ -23,7 +23,7 @@ function ReportLights() {
         setRoom(newdata)
     };
     const handleUserChange = (e) => {
-        if (room.user === false) {
+        if (localStorage.getItem('state') === false) {
             const newdata = { room: room.room, mode:room.mode, value:room.value, pass:room.pass, user: room.user };
             localStorage.setItem('user',e.target.value)
             setRoom(newdata)
@@ -75,7 +75,7 @@ function ReportLights() {
         
             setTimeout(()=>setMessage(""),5000)
         })
-
+        localStorage.setItem('state', true)
         setRoom(prevRoom => ({ room: "", mode:room.mode,value:room.value, pass:room.pass, user:true}));
 
     
