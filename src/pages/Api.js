@@ -81,7 +81,7 @@ function Api() {
             setConnect(data.message)
         });
 
-  }, 6000);
+  }, 5500);
 
   }, []);
 
