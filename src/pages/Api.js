@@ -10,16 +10,22 @@ function Api() {
   const [messages, setMessages] = React.useState(null);
   const [inputForm, setinputForm] = React.useState({
     item:"",
-    user:""
-  })
+    user:"",
+    state:false
+  }, localStorage.getItem('user'))
+ 
+
 
   const handleMessageInputChange = (e)=>{
-    const newdata = {item:e.target.value, user: inputForm.user};
+    const newdata = {item:e.target.value, user: inputForm.user, state:inputForm.state};
     setinputForm(newdata)
   }
   const handleMessageUserChange = (e)=>{
-    const newdata = {item:inputForm.item, user: e.target.value};
-    setinputForm(newdata)
+    if (inputForm.state !== true) {
+      const newdata = {item:inputForm.item, user: e.target.value, state: true};
+      localStorage.setItem('user', e.target.value)
+      setinputForm(newdata)
+    }
   }
 
 
@@ -29,7 +35,7 @@ function Api() {
       console.log(inputForm.item)
       Axios.post("https://iiksserver.herokuapp.com/comment",{
         item:inputForm.item,
-        user:inputForm.user
+        user:localStorage.getItem('user')
       })
       .then((message) => {
         console.log(message);
@@ -39,7 +45,7 @@ function Api() {
         console.log(messages) 
    
       })
-      setinputForm({item:"", user:inputForm.user})
+      setinputForm({item:"", user:inputForm.user,state:inputForm.state})
     }
   }
   
