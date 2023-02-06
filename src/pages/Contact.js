@@ -16,21 +16,23 @@ function Contact() {
     }
 
     const handleFeedbackInputSubmit = (e) => {
-        e.preventDefault();
-
-        Axios.post("https://iiksserver.herokuapp.com/feedback", {
-            feedback: feedback.message
-        })
-        .then((response)=>{
-            console.log(response)
-            console.log(response.data.message)
-            setFeedback({message: "", response:response.data.message})
-        })
-        //clear server respoonse message after 7 seconds.
-        setTimeout(() => {
-            setFeedback({message: "", response:""})
-        }, 7000);
-        
+       if (feedback.message !== "") {
+         e.preventDefault();
+ 
+         Axios.post("https://iiksserver.herokuapp.com/feedback", {
+             feedback: feedback.message
+         })
+         .then((response)=>{
+             console.log(response)
+             console.log(response.data.message)
+             setFeedback({message: "", response:response.data.message})
+         })
+         //clear server respoonse message after 7 seconds.
+         setTimeout(() => {
+             setFeedback({message: "", response:""})
+         }, 7000);
+         
+       }
     }
 
     return(
