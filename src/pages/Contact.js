@@ -55,8 +55,8 @@ function Contact() {
                 Or input feedback here:
             </div>
             <form onSubmit={handleFeedbackInputSubmit}>
-                <input onChange={handleFeedbackInputChange} type="text" value={feedback.message}></input>
-                <input onChange={handleUserInputChange} type="text" value={localStorage.getItem('user')}></input>
+                <input onChange={handleFeedbackInputChange} type="text" placeholder="Feedback" value={feedback.message}></input>
+                <input onChange={handleUserInputChange} type="text" placeholder="Username" value={localStorage.getItem('user')}></input>
                 <input type="submit"></input>
             </form>
             {feedback.response}
