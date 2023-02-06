@@ -16,7 +16,7 @@ function Contact() {
     }
 
     const handleFeedbackInputSubmit = (e) => {
-       if (feedback.message !== "") {
+       if (/\S/.test(feedback.message)) {
          e.preventDefault();
  
          Axios.post("https://iiksserver.herokuapp.com/feedback", {
