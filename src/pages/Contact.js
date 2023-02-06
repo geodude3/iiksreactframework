@@ -19,7 +19,7 @@ function Contact() {
         if (localStorage.getItem('State') !== 'true') {
             const newdata = {message: feedback.message, response:feedback.response};
           localStorage.setItem('user', e.target.value)
-          setinputForm(newdata)
+          setFeedback(newdata)
         }
       }
 
