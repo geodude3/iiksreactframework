@@ -32,7 +32,7 @@ function Api() {
 
   const handleMessageInputSubmit = (e)=>{
     e.preventDefault();
-    if (inputForm.user !== "") {
+    if ((localStorage.getItem('user') !== "")&&(inputForm.item !== "")) {
       console.log(inputForm.item)
       Axios.post("https://iiksserver.herokuapp.com/comment",{
         item:inputForm.item,
