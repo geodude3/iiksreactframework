@@ -124,9 +124,11 @@ function Api() {
               </div>
             </div>
             <form onSubmit={handleMessageInputSubmit}>
-                <input onChange={handleMessageInputChange} id="item" placeholder="message" type="text" value={inputForm.item}/>
-                <input onChange={handleMessageUserChange} id="user" placeholder="username" type="text" value={localStorage.getItem('user')}/>
-                <input type="submit" value="Submit" />
+                <textarea cols={35} onChange={handleMessageInputChange} id="item" placeholder="message" type="text" value={inputForm.item}/>
+                <div>
+                  <input onChange={handleMessageUserChange} id="user" placeholder="username" type="text" value={localStorage.getItem('user')}/>
+                  <input type="submit" value="Submit" />
+                </div>
             </form>
             </div>
         </div>
