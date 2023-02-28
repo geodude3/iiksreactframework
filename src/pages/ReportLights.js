@@ -130,6 +130,7 @@ function ReportLights() {
             <b>
                 <p>
                     <form name="mode" onSubmit={handleCongrats}><input name="modeButton" value='Congratulate' type="submit"></input></form> 
+                    <div style={{margintop:20}}></div>
                     <form name="mode" onSubmit={handleReport}><input name="modeButton" value='Report' type="submit"></input></form> 
                 </p>
             </b>
