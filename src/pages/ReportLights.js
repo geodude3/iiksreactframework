@@ -36,18 +36,17 @@ function ReportLights() {
     
     let [message, setMessage] = React.useState();
 
-    const handleSubmit = (e) => {
+    function handleSubmit(status){
 
         let statusMessage;
         if(room.mode === 'Congratulate')statusMessage = 'Congratulation'; else statusMessage = 'Report';
          
         
-        e.preventDefault();
 
         console.log(room.user);
         Axios.post(reportLightsPOSTURL,{
             item:room.room,
-            status:room.mode,
+            status:status,
             pass:room.pass,
             user:localStorage.getItem('user')
         })
@@ -88,15 +87,22 @@ function ReportLights() {
     };
     const handleCongrats = (e) => {
         e.preventDefault();
+
         let newdata;
-        if(room.mode === "Report"){
-            console.log(room.mode);
-            newdata = { room: room.room, mode:"Congratulate",value:"Report",pass:room.pass, user:room.user  };
-        }else if(room.mode === "Congratulate"){
-            newdata = { room: room.room, mode:"Report",value:"Congratulate", pass:room.pass, user:room.user  };
-        }
+        newdata = { room: room.room, mode:"Congratulate",value:"Report",pass:room.pass, user:room.user  };
         setRoom(newdata)
         console.log(room.mode);
+        handleSubmit("Congratulate");
+    }
+    const handleReport = (e) => {
+        e.preventDefault();
+        let newdata;
+        
+        newdata = { room: room.room, mode:"Report",value:"Congratulate", pass:room.pass, user:room.user  };
+        
+        setRoom(newdata)
+        console.log(room.mode);
+        handleSubmit("Report");
     }
     
 
@@ -109,12 +115,7 @@ function ReportLights() {
             <p>
             If you have noticed a certain classroom/office has been turning off the lights more often, press <b>"Congratulate"</b> to send a congratulation email.
             </p>
-            <b>
-                <p>
-                    Email type: <o>{room.mode}</o>           
-                    <form name="mode" onSubmit={handleCongrats}><input name="modeButton" value={room.value} type="submit"></input></form> 
-                </p>
-            </b>
+        
             <form id="form" onSubmit={handleSubmit}>
                 <input onSubmitEditing={handlePress}
                     value={room.room} onChange={handleRoomChange} pattern="[0-9]*" type="number" placeholder="Room #" id="room"/>
@@ -124,9 +125,14 @@ function ReportLights() {
                     <input onSubmitEditing={handlePress}
                         value={room.pass} onChange={handlePassChange} type="password" placeholder="Password" id="pass"/>
                 </div>
-                <input id="submit" type="submit"></input>
+                {/* <input id="submit" type="submit"></input> */}
             </form>
-            
+            <b>
+                <p>
+                    <form name="mode" onSubmit={handleCongrats}><input name="modeButton" value='Congratulate' type="submit"></input></form> 
+                    <form name="mode" onSubmit={handleReport}><input name="modeButton" value='Report' type="submit"></input></form> 
+                </p>
+            </b>
             <p style={{margin:20,marginLeft:1}}>{message}</p>
         </div>
     )
