@@ -2,6 +2,9 @@
 
 ## **IIKS Official Website**
 
+IIKS is a satirical website I created to learn Website Development with JS React and Node JS. 
+While there is a light reporting tab on this site, I also created a dedicated website under [this](https://github.com/ihsan-sa/reportlights) repository for my high school to use.
+
 [Website link](https://iiks.tech/): [iiks.tech](https://iiks.tech/)
 
 Website hosted on Netlify.
