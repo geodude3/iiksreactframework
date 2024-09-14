@@ -13,8 +13,6 @@ This project uses the React JS framework in combination with NODE JS, which runs
 
 Server code available @ repository IIKSSERVER.
 
-Server systems are not yet setup.
-
 See below for information on the REACT framework.
 
 iiks
